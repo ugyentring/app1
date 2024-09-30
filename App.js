@@ -1,20 +1,28 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import "react-native-get-random-values";
+import "@ethersproject/shims";
+import { StatusBar } from "expo-status-bar";
+import { StyleSheet, SafeAreaView, StatusBar as SB } from "reactnative";
+import { NavigationContainer } from "@react-navigation/native";
+import MainNavigator from "./Navigators/MainNavigator";
+import { Provider } from "react-redux";
+import { store } from "./Store/store";
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <SafeAreaView style={styles.container}>
+      <StatusBar style="light" />
+      <Provider store={store}>
+        <NavigationContainer>
+          <MainNavigator />
+        </NavigationContainer>
+      </Provider>
+    </SafeAreaView>
   );
 }
-
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
+    paddingTop: SB.currentHeight,
+    backgroundColor: "#0a4f95",
   },
 });
