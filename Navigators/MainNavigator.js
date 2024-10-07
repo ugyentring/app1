@@ -3,10 +3,12 @@ import Login from "../screen/Login";
 import SecondaryNavigator from "./SecondaryNavigator";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { useEffect, useState } from "react";
+
 const Stack = createNativeStackNavigator();
 
 function MainNavigator() {
   const [passphraseStatus, setPassphraseStatus] = useState();
+
   useEffect(() => {
     const passPhrase = async () => {
       const pp = await AsyncStorage.getItem("walletBTPP");
@@ -14,6 +16,7 @@ function MainNavigator() {
     };
     passPhrase();
   }, [passphraseStatus]);
+
   return (
     <Stack.Navigator screenOptions={{ headerShown: false }}>
       {passphraseStatus ? (

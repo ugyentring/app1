@@ -21,15 +21,16 @@ function Login({ navigation }) {
 
   const guideLines = [
     "1. Click on generate passphrase",
-    "2. Copy the passphrase that you generate. It can be used to login later on or to recover your account",
-    "3. Click on Create Account to create an account in our wallet",
-    "4. In case you want a different passphrase, click on Clear and repeat from step 1",
-    "5. If you already have an account, then use the login button",
+    "2. Copy the passphrase that you generate. It can be used to\
+   login later on or to recover your account",
+    "3. Click on Create Account to create Account in our wallet",
+    "4. In case if you want different passphrase click on Clear and\
+   repeat\from step 1",
+    "5. If you already have an account then use the login button ",
   ];
 
   function generateMnemonic() {
     setIsLoading(true);
-    // Just to hold for 500ms to load passpharse
     setTimeout(() => {
       const passPhrase = ethers.Wallet.createRandom().mnemonic.phrase;
       setPassPhrase(passPhrase);
@@ -55,7 +56,6 @@ function Login({ navigation }) {
     setCreateAccountState(false);
     navigation.navigate("SecondaryNavigator");
   }
-
   async function setAccountsLocal(walletBT) {
     try {
       const accounts = JSON.stringify(walletBT);
@@ -141,6 +141,7 @@ function Login({ navigation }) {
   );
 }
 export default Login;
+
 const styles = StyleSheet.create({
   rootContainer: {
     flex: 1,

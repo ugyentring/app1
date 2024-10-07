@@ -1,7 +1,7 @@
 import "react-native-get-random-values";
 import "@ethersproject/shims";
 import { StatusBar } from "expo-status-bar";
-import { StyleSheet, SafeAreaView, StatusBar as SB } from "reactnative";
+import { StyleSheet, SafeAreaView, StatusBar as SB } from "react-native";
 import { NavigationContainer } from "@react-navigation/native";
 import MainNavigator from "./Navigators/MainNavigator";
 import { Provider } from "react-redux";
